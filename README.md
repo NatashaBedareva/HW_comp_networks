@@ -6,12 +6,12 @@
 ## Начало работы
 Клонирование репозитория
 
-```http
+```
 git clone https://github.com/NatashaBedareva/HW_comp_networks.git
 ```
 
 Выбор задачи
-```http
+```
 cd Task_<number work>
 ```
 

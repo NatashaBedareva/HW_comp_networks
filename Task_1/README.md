@@ -16,7 +16,7 @@
 
 Пример входного файла:
 
-```http
+```
 unity.com
 www.python.org
 ru.wikipedia.org
