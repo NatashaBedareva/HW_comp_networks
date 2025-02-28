@@ -13,7 +13,8 @@ def datas_to_csv(data,path_output):
     df.columns=['product_name','mount','article','width','height','depth']
     df.to_csv(path_output, index=False)
 
-def scraper(data,driver):
+def scraper(driver):
+    data = []
     for product_id in range(1, 13):
         products = driver.find_elements(By.XPATH, "//*[@id='"'main_block'"']/div/div[3]/div[" + str(
             product_id) + "]/div/div/h6/a")
@@ -44,12 +45,12 @@ def main(path_output):
 
     driver.find_element(By.XPATH,"//*[@id='"'main_block'"']/div/div[2]/div/div/div[1]/div/h2/a").click()
 
-    data = []
-    for _ in range(2):
-        data = data + scraper(data,driver)
-        next_page_link = driver.find_element(By.XPATH, "//*[@id='"'pagination'"']/p/a[3]")
+    out_data=[]
+    for id_page in [3,5]:
+        out_data = out_data + scraper(driver)
+        next_page_link = driver.find_element(By.XPATH, "//*[@id='"'pagination'"']/p/a["+str(id_page)+"]")
         driver.execute_script("arguments[0].click();", next_page_link)
-    datas_to_csv(data,path_output)
+    datas_to_csv(out_data,path_output)
 
 if __name__=="__main__":
     if len(sys.argv) > 1:
