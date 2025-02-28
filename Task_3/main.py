@@ -22,6 +22,7 @@ def scraper():
 
         time.sleep(1)
 
+
         price = driver.find_elements(By.XPATH, "//*[@id='"'product_amount'"']")[0].text
         article = driver.find_elements(By.XPATH,"//*[@id='"'sku'"']")[0].text
         width = driver.find_elements(By.XPATH,"//*[@id='"'characteristics'"']/tbody/tr[1]/td[2]")[0].text
