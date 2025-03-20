@@ -10,6 +10,7 @@ def hello_world():
     run_parsing("out.csv")
     return csvToList("out.csv")
 
+
 def csvToList(data):
     df = pd.read_csv(data)
     answers = [['product_name |', ' mount |', ' article |', ' width |', ' height |', ' depth |']]
