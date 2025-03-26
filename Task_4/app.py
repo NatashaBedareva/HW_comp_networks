@@ -51,7 +51,3 @@ def run_parsing(path_output):
         next_page_link = driver.find_element(By.XPATH, "//*[@id='"'pagination'"']/p/a["+str(id_page)+"]")
         driver.execute_script("arguments[0].click();", next_page_link)
     datas_to_csv(out_data,path_output)
-
-def run_test():
-    print("It is test")
-
