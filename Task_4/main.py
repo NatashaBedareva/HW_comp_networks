@@ -10,7 +10,9 @@ from sqlalchemy import create_engine
 from dotenv import load_dotenv, dotenv_values
 
 
-def dataToSQL(csv_file_path):
+app = Flask(__name__)
+
+def data_to_SQL(csv_file_path):
     load_dotenv()
 
     user = os.getenv("USER")
@@ -26,13 +28,12 @@ def dataToSQL(csv_file_path):
 
     print(f"Data {csv_file_path} write to tabel {table_name} in BD {db_name}.")
 
-app = Flask(__name__)
 
 @app.route('/')
-def hello_world():
+def run_app():
     out = "out.csv"
     run_parsing(out)
-    dataToSQL(out)
+    data_to_SQL(out)
     return make_json(out)
 
 def make_json(csvFilePath):
