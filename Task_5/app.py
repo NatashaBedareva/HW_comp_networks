@@ -24,7 +24,7 @@ def init_db():
 
 
 @app.route('/')
-def home():
+def add_db():
     with engine.begin() as conn:
         conn.execute(text("""
             INSERT INTO numbers (value) 
